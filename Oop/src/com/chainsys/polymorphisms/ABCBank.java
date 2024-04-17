@@ -76,7 +76,11 @@ public class ABCBank {
 		System.out.println("You Are available for loans");
 		System.out.println("**********************");
 	}
-
+	
+	public void deposit(int amount) {
+      System.out.println("before deposit" +amount);
+    }
+	
 	public static void deposit(int amount, int accountNumber, int deposit) {
 		System.out.println("Amount deposited - self");
 		System.out.println(deposit + " has been deposited");
