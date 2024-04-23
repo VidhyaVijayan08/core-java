@@ -9,7 +9,6 @@ public class TestABCBank {
         abcBank.deposit(4000);
         ABCBank.deposit(4000,5432675,20000);
         ABCBank.deposit(50000,537817,90000,12345678);
-   
         
         BankB b=new BankB();
         b.details();

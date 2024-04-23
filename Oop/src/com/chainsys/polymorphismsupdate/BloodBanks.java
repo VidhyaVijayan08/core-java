@@ -1,4 +1,4 @@
-package com.chainsys.polymorphisms;
+package com.chainsys.polymorphismsupdate;
 
 import java.util.Scanner;
 
