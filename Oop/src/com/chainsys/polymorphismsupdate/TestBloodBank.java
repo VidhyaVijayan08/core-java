@@ -3,25 +3,24 @@ package com.chainsys.polymorphismsupdate;
 import java.util.Scanner;
 
 public class TestBloodBank {
-
 	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		
-		System.out.println("Already u are an user ? Say yes or no");
+		Scanner sc = new Scanner(System.in);		
+		System.out.println("Do you have account ? (yes/no/student/admin)");
 		String input = sc.next();
-		String inputs = "yes";
+		String inputs = "yes", input2 = "student", input3="admin";
+		
 		if(input.equals(inputs)) {
 			System.out.println("You are going to donate blood");
-			 String input1 = sc.next();
-			 if(input1.equals(inputs)) {
-				 System.out.println("Please Enter Your Id :");
-				 int unit,unit1=300,unit2=200,unit3=250,id1=5, id=sc.nextInt();
-				 System.out.println("Please Enter Your Name : ");
-				 String name1="Vidhya", name = sc.next();
-				 System.out.println("Please Enter Your PhoneNumber : ");
-				 int phonenumber1 =1234565432, phoneNumber = sc.nextInt();
-				 if(id==id1 && name.equals(name1) && phoneNumber == phonenumber1 ) {
-					 System.out.println("Confirmation Successfull");
+			String input1 = sc.next();
+			if(input1.equals(inputs)) {
+				System.out.println("Please Enter Your Id :");
+				int unit,unit1=300,unit2=200,unit3=250,id1=5, id=sc.nextInt();
+				System.out.println("Please Enter Your Name : ");
+				String name1="Vidhya", name = sc.next();
+				System.out.println("Please Enter Your PhoneNumber : ");
+				int phonenumber1 =1234565432, phoneNumber = sc.nextInt();
+				if(id==id1 && name.equals(name1) && phoneNumber == phonenumber1 ) {
+					System.out.println("Confirmation Successfull");
 					 System.out.println("How Much Do you want to donate");
 					 unit=sc.nextInt();
 					 if(unit==unit1) {
@@ -48,24 +47,31 @@ public class TestBloodBank {
 					 System.out.println("Sorry, No Records Found!");
 				 }
 			 }else {
+				 
 				 System.out.println("User have only allowed to donate");
+				 System.out.println("If you need blood please login again !Enter as a new login");
 			 }
-		}else {
+		}else if(input.equals(input2)) {
+			BloodBanksDetails bloodBanksDetails = new BloodBanksDetails();
+			bloodBanksDetails.displayDetails();
+		}else if(input.equals(input3)){
+			BloodBanksDetails bloodBanksDetails = new BloodBanksDetails();
+			bloodBanksDetails.admin();
+		}else{
 			BloodBanksDetails bloodBanksDetails = new BloodBanksDetails();
 			bloodBanksDetails.userDetails();
-			
 			String bloodGroup = bloodBanksDetails.bloodGroup;
 			test(bloodGroup,bloodBanksDetails.name);
 //			BloodBankD bloodBankD = new BloodBankD();
-		}sc.close();
-		
+//			bloodBanksDetails.details();
+		}sc.close();	
 	}
+	
 	public static void test(String bloodGroup,String name) {
 		String bloodGroup1="A-";
 		String bloodGroup2="O+";
 		String bloodGroup3="AB-";
 		int bloodGroupPacket1 = 200,bloodGroupPacket2 = 300, bloodGroupPacket3 = 250;
-		
 		Scanner sc =new Scanner(System.in);
 		if(bloodGroup.equals(bloodGroup1)||bloodGroup.equals(bloodGroup2)||bloodGroup.equals(bloodGroup3)) {
 			BloodBankB b2 = new BloodBankB();
@@ -80,7 +86,6 @@ public class TestBloodBank {
 			int bloodUsed = 100;
 			bloodBankD.bloodTest(name);
 			bloodBanksDetails.testing(name);
-			
 			if(bloodGroup.equals(bloodGroup1)) {
 				System.out.println(bloodGroupPacket1 +" ml is available for " + bloodGroup1);
 				System.out.println("We have " + bloodGroupPacket1 + "ml for " + bloodGroup1);
@@ -100,6 +105,5 @@ public class TestBloodBank {
 			System.out.println("We don't have this blood group.");
 			System.out.println("Available Blood Groups are \n 1. O+\n 2. A-\n 3. AB-\n");
 		}sc.close();
-		
 	}
 }
