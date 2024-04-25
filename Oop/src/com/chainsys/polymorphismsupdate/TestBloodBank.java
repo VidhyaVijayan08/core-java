@@ -2,13 +2,13 @@ package com.chainsys.polymorphismsupdate;
 
 import java.util.Scanner;
 
-public class TestBloodBank {
-	public static void main(String[] args) {
+public class TestBloodBank extends BloodBanksDetails{
+
+	public static void main(String[] args) { 
 		Scanner sc = new Scanner(System.in);		
-		System.out.println("Do you have account ? (yes/no/student/admin)");
+		System.out.println("Do you have account ? (yes/no/student/admin/transaction/hospital/donor/register/login/details)");
 		String input = sc.next();
-		String inputs = "yes", input2 = "student", input3="admin";
-		
+		String inputs = "yes", input2 = "student", input3="admin", input4="transaction", input5="hospital", input6 = "donor", input7="register", input8="login", input9="details";
 		if(input.equals(inputs)) {
 			System.out.println("You are going to donate blood");
 			String input1 = sc.next();
@@ -57,13 +57,55 @@ public class TestBloodBank {
 		}else if(input.equals(input3)){
 			BloodBanksDetails bloodBanksDetails = new BloodBanksDetails();
 			bloodBanksDetails.admin();
+			
+			
+		}else if(input.equals(input4)) {
+			 System.out.println("**********************************");
+			 System.out.println(" Daily transaction for blood bank");
+			 System.out.println("**********************************");
+			 BloodBanksDetails bloodBanksDetails = new BloodBanksDetails();
+			 bloodBanksDetails.transaction(1, "Vidhya", "O+","22-04-2024");
+			 System.out.println("--------------------");
+			 bloodBanksDetails.transaction(2, "Santhini", "O+","22-04-2024");
+			 System.out.println("--------------------");
+			 bloodBanksDetails.transaction(3, "Swarna", "A+", "23-04-2024");
+			 System.out.println("--------------------");
+			 bloodBanksDetails.transaction(4, "Sangeetha", "A-","20-04-2024");
+			 System.out.println("--------------------");
+			 bloodBanksDetails.transaction(5, "Swetha", "AB-","24-04-2024");
+			 System.out.println("**********************************");
+		}else if(input.equals(input5)) {
+			BloodBanksDetails bloodBanksDetails = new BloodBanksDetails();
+			System.out.println("****************************************");
+			System.out.println("   Hospital Details For Blood Donation     ");
+			System.out.println("****************************************");
+			bloodBanksDetails.hospitalDetails("Apolo Hospital","Avadi","Chennai","Avadi");
+			System.out.println("----------------------------------------");
+			bloodBanksDetails.hospitalDetails("Vijaya Hospital ","Vadapalani","Chennai","Vadapalani");
+			System.out.println("----------------------------------------");
+			bloodBanksDetails.hospitalDetails("Meenakshi Hospital","Ambattur","Chennai","Ambattur");
+			System.out.println("----------------------------------------");
+			bloodBanksDetails.hospitalDetails("Military Hospital","Avadi","Chennai","Avadi");
+			System.out.println("----------------------------------------");
+			bloodBanksDetails.hospitalDetails("Aristo Hospital","Perambur","Chennai","Perambur");
+			System.out.println("*****************************************");
+		}else if(input.equals(input6)) {
+			BloodBanksDetails bloodBanksDetails = new BloodBanksDetails();
+			bloodBanksDetails.bloodDonorsDetails("Vidhya","O+","Avadi",12345678l,"Chennai");
+		}else if(input.equals(input7)) {
+			BloodBanksDetails bloodBanksDetails = new BloodBanksDetails();
+			bloodBanksDetails.register();
+		}else if(input.equals(input8)) {
+			BloodBanksDetails bloodBanksDetails = new BloodBanksDetails();
+			bloodBanksDetails.login();
+		}else if(input.equals(input9)) {
+			BloodBanksDetails bloodBanksDetails = new BloodBanksDetails();
+			bloodBanksDetails.availableBloodBags();
 		}else{
 			BloodBanksDetails bloodBanksDetails = new BloodBanksDetails();
 			bloodBanksDetails.userDetails();
 			String bloodGroup = bloodBanksDetails.bloodGroup;
 			test(bloodGroup,bloodBanksDetails.name);
-//			BloodBankD bloodBankD = new BloodBankD();
-//			bloodBanksDetails.details();
 		}sc.close();	
 	}
 	
