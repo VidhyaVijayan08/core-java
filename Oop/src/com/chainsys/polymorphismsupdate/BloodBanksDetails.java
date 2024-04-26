@@ -4,14 +4,10 @@ import java.util.Scanner;
 
 public class BloodBanksDetails extends BloodBanks{
 
-//	public int id1;
-//	public Object name1;
-
 	public String aname= "Vidhya";
 	public int aid=5;
 	Scanner sc = new Scanner(System.in);
 	public String username,password,username1,password1;
-
 
 	@Override
 	public void testing(String name) {
@@ -87,7 +83,6 @@ public class BloodBanksDetails extends BloodBanks{
 		System.out.println("Enter Your Username ");
 		String username = sc.next();
 		System.out.println("Enter Your Password");
-		@SuppressWarnings("unused")
 		String password = sc.next();
 		System.out.println("Registeration Success");
 	}
@@ -102,7 +97,7 @@ public class BloodBanksDetails extends BloodBanks{
 		String password1 = sc.next();
 		username = "Vidhya@08";
 		password = "Sudha";
-		if(username.equals(userName1) &&password.equals(password1)) {
+		if(username.equals(userName1) && password.equals(password1)) {
 			System.out.println("Login Successfull");
 		}else {
 			System.out.println("Login Failed");
@@ -110,6 +105,67 @@ public class BloodBanksDetails extends BloodBanks{
 	}
 	
 	public void availableBloodBags() {
-		System.out.println("50 Blood Bags are available");
+		System.out.println("***************************");
+		System.out.println("Available Blood Bags :- ");
+		System.out.println("***************************");
+		System.out.println("=> 50 Blood Bags are available");
+		System.out.println("=> Each unit of blood is broken down into components,\n such as red blood cells, plasma, cryoprecipitated AHF,\n and platelets.One unit of whole blood,\n once it's separated, may be transfused to several patients,\n each with different needs.");
+		System.out.println("***************************");
+	}
+	
+	public void diseaseTest() {
+		System.out.println("Screening for current or past infections, including:");
+		System.out.println("1. Hepatitis viruses B and C \n2. Human immunodeficiency virus (HIV) \n3. Human T-lymphotropic viruses (HTLV) I and II \n4. Syphilis\n5. West Nile virus\n6. Chagas disease \n7.No disease ");
+		int diseaseOption=sc.nextInt();
+		if(diseaseOption==1||diseaseOption==2||diseaseOption==3||diseaseOption==4||diseaseOption==5||diseaseOption==6) {
+			System.out.println("Sorry ! you are not supposed to donate blood");
+		}else {
+			System.out.println("You can give blood");
+		}
+		if(diseaseOption==7) {
+			userDetails();
+			System.out.println("Thank you for donating blood");
+		}
+	}
+	
+	public void matchingBloodGroupDetails() {
+		System.out.println("*************************");
+		System.out.println("Blood Type Matching");
+		System.out.println("*************************");
+		System.out.println(" On their surface, red cells have inherited chemical structures called antigens that can cause a person’s immune system\n to make antibodies against them. Humans have 35 major groups or families of these antigens, as well as other minor groups,\n but consideration of two, the ABO group and the RhD group, is very important to ensure that a transfusion recipient receives\n compatible blood. The presence of antigens within these groups is what determines a person’s blood type. Blood types are \n referred to as Type A, Type B, Type AB (which has both A and B antigens), or Type O (which has neither A or B antigens) \n followed by positive or negative, which indicates the presence of the RhD antigen. Persons who are RhD negative have no RhD antigen. ");
+		System.out.println("*************************");
+		System.out.println("Enter Your BloodGroup : ");
+		System.out.println("*************************");
+		String bloodGroup =sc.next(),bloodGroup1="A+",bloodGroup2="A-",bloodGroup3="B+",bloodGroup4="B-",bloodGroup5="AB+",bloodGroup6="AB-",bloodGroup7="O+",bloodGroup8="O-";
+		System.out.println("*************************");
+		if(bloodGroup.equals(bloodGroup1)) {
+			System.out.println("Matching BloodGroups For " + bloodGroup);
+			System.out.println("A+ = A+, A-, O+, O-");
+		}else if(bloodGroup.equals(bloodGroup2)) {
+			System.out.println("Matching BloodGroups For " + bloodGroup);
+			System.out.println("A- = A-, O-");
+		}else if(bloodGroup.equals(bloodGroup3)) {
+			System.out.println("Matching BloodGroups For " + bloodGroup);
+			System.out.println("B+ = B+, B-, O+, O-");
+		}else if(bloodGroup.equals(bloodGroup4)) {
+			System.out.println("Matching BloodGroups For " + bloodGroup);
+			System.out.println("B- = B-, O-");	
+		}else if(bloodGroup.equals(bloodGroup5)) {
+			System.out.println("Matching BloodGroups For " + bloodGroup);
+			System.out.println("AB+ = Compatible with all blood types");
+		}else if(bloodGroup.equals(bloodGroup6)) {
+			System.out.println("Matching BloodGroups For " + bloodGroup);
+			System.out.println("AB- = AB-, A-, B-, O-");
+		}else if(bloodGroup.equals(bloodGroup7)) {
+			System.out.println("Matching BloodGroups For " + bloodGroup);
+			System.out.println("O+ = O+, O-");
+		}else if(bloodGroup.equals(bloodGroup8)) {
+			System.out.println("Matching BloodGroups For " + bloodGroup);
+			System.out.println("O- = O-");
+		}else {
+			System.out.println("Invalid Data");
+		}
+		System.out.println("*************************");
+
 	}
 }

@@ -74,7 +74,6 @@ public abstract class BloodBanks {
 		System.out.println("What are the components of blood?");
 		System.out.println("Select One Option To Know The Details: \n 1.Red blood cells\n 2.Platelets\n 3. White blood cells\n 4. Plasma\n 5. Cryoprecipitate AHF");
 		input2 = 4;
-//		System.out.println("");
 		int input3= sc.nextInt();
 		switch(input3) {
 		case 1: 

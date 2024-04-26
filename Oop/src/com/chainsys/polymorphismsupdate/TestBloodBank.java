@@ -3,12 +3,11 @@ package com.chainsys.polymorphismsupdate;
 import java.util.Scanner;
 
 public class TestBloodBank extends BloodBanksDetails{
-
 	public static void main(String[] args) { 
 		Scanner sc = new Scanner(System.in);		
-		System.out.println("Do you have account ? (yes/no/student/admin/transaction/hospital/donor/register/login/details)");
+		System.out.println("Do you have an account ? (yes/no/student/admin/transaction/hospital/donordetails/register/login/availabilitydetails/test/matchingbloodgroupdetails)");
 		String input = sc.next();
-		String inputs = "yes", input2 = "student", input3="admin", input4="transaction", input5="hospital", input6 = "donor", input7="register", input8="login", input9="details";
+		String inputs = "yes", input2 = "student", input3="admin", input4="transaction", input5="hospital", input6 = "donordetails", input7="register", input8="login", input9="availabilitydetails", input10="test", input11="matchingbloodgroupdetails";
 		if(input.equals(inputs)) {
 			System.out.println("You are going to donate blood");
 			String input1 = sc.next();
@@ -18,31 +17,38 @@ public class TestBloodBank extends BloodBanksDetails{
 				System.out.println("Please Enter Your Name : ");
 				String name1="Vidhya", name = sc.next();
 				System.out.println("Please Enter Your PhoneNumber : ");
-				int phonenumber1 =1234565432, phoneNumber = sc.nextInt();
+				long phonenumber1 =1234565432l, phoneNumber = sc.nextLong();
 				if(id==id1 && name.equals(name1) && phoneNumber == phonenumber1 ) {
 					System.out.println("Confirmation Successfull");
-					 System.out.println("How Much Do you want to donate");
-					 unit=sc.nextInt();
-					 if(unit==unit1) {
-						 System.out.println("Unit Of Blood Taken");
-					 }else if(unit==unit2) {
-						 System.out.println("Unit Of Blood Taken");
-					 }else if(unit==unit3) {
-						 System.out.println("Unit Of Blood Taken");
-					 }else if(unit!=unit1 || unit!=unit2 || unit!=unit3){
-						 System.out.println("Sorry! Here we collect this much unit only because for donor's health concern.");
-					 }
-					 int donateBlood = sc.nextInt();
-					 if(donateBlood == 200) {
-						 System.out.println("You Have Finished Your Blood Donation And You Have Donated " + donateBlood);
-						 System.out.println("Thank You For Doing This Service");
-					 }else if(donateBlood == 250) {
-						 System.out.println(donateBlood + "ml finished blood donation");
-						 System.out.println("Thank You For Doing This Service");
-					 }else if(donateBlood == 300) {
-						 System.out.println("You Have Finished Your Blood Donation And You Have Donated " + donateBlood);
-						 System.out.println("Thank You For Doing This Service");
-					 }
+					System.out.println("Please Enter your age");
+					int age = sc.nextInt();
+					if(age>=18) {
+						System.out.println("How Much Do you want to donate");
+						unit=sc.nextInt();
+						if(unit==unit1) {
+							System.out.println("Unit Of Blood Taken");
+						 }else if(unit==unit2) {
+							 System.out.println("Unit Of Blood Taken");
+						 }else if(unit==unit3) {
+							 System.out.println("Unit Of Blood Taken");
+						 }else if(unit!=unit1 || unit!=unit2 || unit!=unit3){
+							 System.out.println("Sorry! Here we collect this much unit only because for donor's health concern.");
+						 }
+						 int donateBlood = sc.nextInt();
+						 if(donateBlood == 200) {
+							 System.out.println("You Have Finished Your Blood Donation And You Have Donated " + donateBlood);
+							 System.out.println("Thank You For Doing This Service");
+						 }else if(donateBlood == 250) {
+							 System.out.println(donateBlood + "ml finished blood donation");
+							 System.out.println("Thank You For Doing This Service");
+						 }else if(donateBlood == 300) {
+							 System.out.println("You Have Finished Your Blood Donation And You Have Donated " + donateBlood);
+							 System.out.println("Thank You For Doing This Service");
+						 }
+					}else {
+						System.out.println("Sorry, You Cannot Donate Blood");
+					}
+					
 				 }else {
 					 System.out.println("Sorry, No Records Found!");
 				 }
@@ -57,8 +63,6 @@ public class TestBloodBank extends BloodBanksDetails{
 		}else if(input.equals(input3)){
 			BloodBanksDetails bloodBanksDetails = new BloodBanksDetails();
 			bloodBanksDetails.admin();
-			
-			
 		}else if(input.equals(input4)) {
 			 System.out.println("**********************************");
 			 System.out.println(" Daily transaction for blood bank");
@@ -101,11 +105,19 @@ public class TestBloodBank extends BloodBanksDetails{
 		}else if(input.equals(input9)) {
 			BloodBanksDetails bloodBanksDetails = new BloodBanksDetails();
 			bloodBanksDetails.availableBloodBags();
+		}else if(input.equals(input10)) {
+			BloodBanksDetails bloodBanksDetails = new BloodBanksDetails();
+			bloodBanksDetails.diseaseTest();
+		}else if(input.equals(input11)) {
+			BloodBanksDetails bloodBanksDetails = new BloodBanksDetails();
+			bloodBanksDetails.matchingBloodGroupDetails();
 		}else{
 			BloodBanksDetails bloodBanksDetails = new BloodBanksDetails();
 			bloodBanksDetails.userDetails();
 			String bloodGroup = bloodBanksDetails.bloodGroup;
 			test(bloodGroup,bloodBanksDetails.name);
+//		}else {
+			
 		}sc.close();	
 	}
 	

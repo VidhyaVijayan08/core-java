@@ -1,7 +1,7 @@
 package com.chainsys.polymorphismsupdate;
 
 public class BloodBankD implements BloodBankC {
-
+ 
 	@Override
 	public void test() {
 		System.out.println("Checking For Your blood Group ");

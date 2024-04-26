@@ -7,4 +7,6 @@ public class BloodBanksDetails extends BloodBanks{
 		System.out.println("You can go to home " + name);
 	}
 
+	
+
 }
