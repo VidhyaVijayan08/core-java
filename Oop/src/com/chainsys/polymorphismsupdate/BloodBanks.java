@@ -8,7 +8,7 @@ public abstract class BloodBanks {
 	public static String bloodGroup,bloodGroup1,bloodGroup2;
 
 	public void purchase() {
-
+			
 	}
 
 	public void testing() {

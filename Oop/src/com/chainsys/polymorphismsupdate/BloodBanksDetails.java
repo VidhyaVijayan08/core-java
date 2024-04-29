@@ -166,6 +166,5 @@ public class BloodBanksDetails extends BloodBanks{
 			System.out.println("Invalid Data");
 		}
 		System.out.println("*************************");
-
 	}
 }
