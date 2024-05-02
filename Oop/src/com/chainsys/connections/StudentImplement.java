@@ -52,7 +52,6 @@ public class StudentImplement{
 	    	ResultSet rows = stmt.executeQuery(query);
 	        System.out.println("id\t\tname\t\taddress");
 	        while (rows.next()) {
-	        	 
                 int id = rows.getInt("id");
                 String name = rows.getString("name");
                 String address = rows.getString("address");
