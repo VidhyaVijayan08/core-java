@@ -5,11 +5,17 @@ import java.util.Scanner;
 
 public class BloodBanksDetails extends BloodBanks{
 
-	public String aname= "Vidhya";
-	public int aid=5;
+	public static String adminName= "Vidhya";
+	public static int adminId=5;
 	Scanner sc = new Scanner(System.in);
-	public String username,password,username1,password1;
-
+	public static String username;
+	public static String password;
+	public static String username1;
+	public static String password1;
+	public static String aname;
+	public static int aid;
+//	public static String bloodGroup;
+	
 	@Override
 	public void testing(String name) {
 		System.out.println("You can go to home " + name);
@@ -57,14 +63,14 @@ public class BloodBanksDetails extends BloodBanks{
 		Scanner sc = new Scanner(System.in);
 		System.out.println("WELCOME TO BLOOD BANK");
 		System.out.println("***********************");
-		int id=5;
-		String adminname="Vidhya";
+		int adminId=5;
+		String adminName="Vidhya";
 		System.out.println("Enter your ID:");
-		int aid=sc.nextInt();
-		if(id==aid ) {
+		aid=sc.nextInt();
+		if(aid==adminId ) {
 			System.out.println("Enter your Name:");
-			String aname=sc.next();
-			if(aname.equals(adminname)) {
+			 aname=sc.next();
+			if(aname.equals(adminName) && aid==adminId) {
 				System.out.println("Login Successfull");
 			}else {
 				System.out.println("Login Failed ! Please Enter Correct Name");
@@ -80,11 +86,11 @@ public class BloodBanksDetails extends BloodBanks{
 		System.out.println("Welcome To Registration Page!");
 		System.out.println("***************************");
 		System.out.println("Enter Your Name : ");
-		 name=sc.next();
+		name=sc.next();
 		System.out.println("Enter Your Username ");
-		String username = sc.next();
+		username = sc.next();
 		System.out.println("Enter Your Password");
-		String password = sc.next();
+		password = sc.next();
 		System.out.println("Registeration Success");
 	}
 	
@@ -93,16 +99,18 @@ public class BloodBanksDetails extends BloodBanks{
 		System.out.println("     Welcome To Login Page   ");
 		System.out.println("***************************");
 		System.out.println("Enter Your Username : ");
-		String userName1 =sc.next();
+		 username1 =sc.next();
 		System.out.println("Enter your Password : ");
-		String password1 = sc.next();
-		username = "Vidhya@08";
-		password = "Sudha";
-		if(username.equals(userName1) && password.equals(password1)) {
-			System.out.println("Login Successfull");
-		}else {
-			System.out.println("Login Failed");
-		}
+		 password1 = sc.next();
+		 System.out.println(username);
+		 System.out.println(password);
+//		username = "Vidhya@08";
+//		password = "Sudha";
+//		if(username.equals(userName1) && password.equals(password1)) {
+//			System.out.println("Login Successfull");
+//		}else {
+//			System.out.println("Login Failed");
+//		}
 	}
 	
 	public void availableBloodBags() {
