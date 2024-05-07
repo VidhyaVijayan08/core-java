@@ -1,6 +1,7 @@
 package com.chainsys.bloodbankdao;
 
 import java.sql.SQLException;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class BloodBanksDetails extends BloodBanks{
@@ -14,6 +15,7 @@ public class BloodBanksDetails extends BloodBanks{
 	public static String password1;
 	public static String aname;
 	public static int aid;
+	public static String username2,password2;
 //	public static String bloodGroup;
 	
 	@Override
@@ -34,7 +36,6 @@ public class BloodBanksDetails extends BloodBanks{
 	}
 	public void hospitalDetails(String hname, String address, String location, String branch) {
 		System.out.println("    Hospital Name : "+ hname + "\n    Address : " + address + "\n    Location : " + location + "\n    Branch : " + branch);
-
 	}
 	
 	public void bloodDonorsDetails(String donorName,String donorBloodGroup,String donorAddress, long donorMobileNumber,String donorLocation) {		
@@ -87,11 +88,21 @@ public class BloodBanksDetails extends BloodBanks{
 		System.out.println("***************************");
 		System.out.println("Enter Your Name : ");
 		name=sc.next();
-		System.out.println("Enter Your Username ");
-		username = sc.next();
-		System.out.println("Enter Your Password");
-		password = sc.next();
-		System.out.println("Registeration Success");
+		String s1 = "^[a-zA-Z]+$",s2="^[a-zA-Z0-9]+$";
+		if(name.matches(s1)) {
+			System.out.println("Enter Your Username ");
+			username = sc.next();
+			if(username.matches(s2)) {
+				System.out.println("Enter Your Password");
+				password = sc.next();
+				System.out.println("Registeration Success");	
+			}else {
+				System.out.println("Please Enter proper username");
+			}
+		}else {
+			System.out.println("Please Enter proper name");
+		}
+		
 	}
 	
 	public void login() {
@@ -100,13 +111,19 @@ public class BloodBanksDetails extends BloodBanks{
 		System.out.println("***************************");
 		System.out.println("Enter Your Username : ");
 		 username1 =sc.next();
-		System.out.println("Enter your Password : ");
-		 password1 = sc.next();
-		 System.out.println(username);
-		 System.out.println(password);
-//		username = "Vidhya@08";
-//		password = "Sudha";
-//		if(username.equals(userName1) && password.equals(password1)) {
+			String s1 = "^[a-zA-Z]+$",s2="^[a-zA-Z0-9]+$";
+		 if(username1.matches(s1)) {
+			 System.out.println("Enter your Password : ");
+			 password1 = sc.next();
+			 System.out.println(BloodBanksDetails.username);
+			 System.out.println(password);
+			 username2 = "Vidhya@08";
+			 password2= "Sudha"; 
+		 }else {
+			 System.out.println("Incorrect username");
+		 }
+		
+//		if(username.equals(username1) && password.equals(password1)) {
 //			System.out.println("Login Successfull");
 //		}else {
 //			System.out.println("Login Failed");
@@ -125,15 +142,19 @@ public class BloodBanksDetails extends BloodBanks{
 	public void diseaseTest() throws ClassNotFoundException, SQLException {
 		System.out.println("Screening for current or past infections, including:");
 		System.out.println("1. Hepatitis viruses B and C \n2. Human immunodeficiency virus (HIV) \n3. Human T-lymphotropic viruses (HTLV) I and II \n4. Syphilis\n5. West Nile virus\n6. Chagas disease \n7.No disease ");
-		int diseaseOption=sc.nextInt();
-		if(diseaseOption==1||diseaseOption==2||diseaseOption==3||diseaseOption==4||diseaseOption==5||diseaseOption==6) {
-			System.out.println("Sorry ! you are not supposed to donate blood");
-		}else {
-			System.out.println("You can give blood");
-		}
-		if(diseaseOption==7) {
-			userDetails();
-			System.out.println("Thank you for donating blood");
+		try {
+			int diseaseOption=sc.nextInt();
+			if(diseaseOption==1||diseaseOption==2||diseaseOption==3||diseaseOption==4||diseaseOption==5||diseaseOption==6) {
+				System.out.println("Sorry ! you are not supposed to donate blood");
+			}
+			else if(diseaseOption==7) {
+				userDetails();
+				System.out.println("Thank you for donating blood");
+			}else {
+				System.out.println("You can give blood");
+			}
+		}catch (InputMismatchException e) {
+			System.out.println("Select any one of the option in integer!");
 		}
 	}
 	

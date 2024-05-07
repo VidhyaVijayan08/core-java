@@ -3,7 +3,9 @@ package com.chainsys.bloodbankdao;
 import java.sql.SQLException;
 import java.util.Scanner;
 
-public abstract class BloodBanks {
+import com.chainsys.bloodbankmodel.BloodBank;
+
+public abstract class BloodBanks extends BloodBank {
 	int id,input2;
 	public static String name;
 	public static String bloodGroup,bloodGroup1,bloodGroup2;

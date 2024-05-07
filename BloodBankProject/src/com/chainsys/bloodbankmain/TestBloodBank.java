@@ -9,149 +9,172 @@ import java.util.Scanner;
 
 import com.chainsys.bloodbankdao.BloodBankB;
 import com.chainsys.bloodbankdao.BloodBankD;
-import com.chainsys.bloodbankdao.BloodBankImplement;
+//import com.chainsys.bloodbankdao.BloodBankDetails;
+//import com.chainsys.bloodbankdao.BloodBankImplement;
+//import com.chainsys.bloodbankdao.BloodBanks;
 import com.chainsys.bloodbankdao.BloodBanksDetails;
 import com.chainsys.bloodbankutil.ConnectionUtil;
 
-public class TestBloodBank extends BloodBanksDetails{
+public class TestBloodBank extends BloodBanksDetails {
+//	private static String name2;
+ 	static Scanner sc=new Scanner(System.in);
+
+
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
-		TestBloodBank testBloodBank = new TestBloodBank();
-		Scanner sc = new Scanner(System.in);		
+//		TestBloodBank testBloodBank = new TestBloodBank();
+//		Scanner sc = new Scanner(System.in);		
 		System.out.println("Do you have an account ? (yes/no/student/admin/transaction/hospital/donordetails/register/login/availabilitydetails/test/matchingbloodgroupdetails)");
 		String input = sc.next();
-		String inputs = "yes", input2 = "student", input3="admin", input4="transaction", input5="hospital", input6 = "donordetails", input7="register", input8="login", input9="availabilitydetails", input10="test", input11="matchingbloodgroupdetails";
-		if(input.equals(inputs)) {
-			System.out.println("You are going to donate blood");
-			String input1 = sc.next();
-			if(input1.equals(inputs)) {
-				System.out.println("Please Enter Your Id :");
-				int unit,unit1=300,unit2=200,unit3=250,id1=5, id=sc.nextInt();
-				System.out.println("Please Enter Your Name : ");
-				String name1="Vidhya", name = sc.next();
-				System.out.println("Please Enter Your PhoneNumber : ");
-				long phonenumber1 =1234565432l, phoneNumber = sc.nextLong();
-				if(id==id1 && name.equals(name1) && phoneNumber == phonenumber1 ) {
-					System.out.println("Confirmation Successfull");
-					System.out.println("Please Enter your age");
-					int age = sc.nextInt();
-					if(age>=18) {
-						System.out.println("How Much Do you want to donate");
-						unit=sc.nextInt();
-						if(unit==unit1) {
-							System.out.println("Unit Of Blood Taken");
-						 }else if(unit==unit2) {
-							 System.out.println("Unit Of Blood Taken");
-						 }else if(unit==unit3) {
-							 System.out.println("Unit Of Blood Taken");
-						 }else if(unit!=unit1 || unit!=unit2 || unit!=unit3){
-							 System.out.println("Sorry! Here we collect this much unit only because for donor's health concern.");
-						 }
-						 int donateBlood = sc.nextInt();
-						 if(donateBlood == 200) {
-							 System.out.println("You Have Finished Your Blood Donation And You Have Donated " + donateBlood);
-							 System.out.println("Thank You For Doing This Service");
-						 }else if(donateBlood == 250) {
-							 System.out.println(donateBlood + "ml finished blood donation");
-							 System.out.println("Thank You For Doing This Service");
-						 }else if(donateBlood == 300) {
-							 System.out.println("You Have Finished Your Blood Donation And You Have Donated " + donateBlood);
-							 System.out.println("Thank You For Doing This Service");
-						 }
-					}else {
-						System.out.println("Sorry, You Cannot Donate Blood");
-					}
-					
-				 }else {
-					 System.out.println("Sorry, No Records Found!");
-				 }
-			 }else {
-				 
-				 System.out.println("User have only allowed to donate");
-				 System.out.println("If you need blood please login again !Enter as a new login");
-			 }
-		}else if(input.equals(input2)) {
-			BloodBanksDetails bloodBanksDetails = new BloodBanksDetails();
-			bloodBanksDetails.displayDetails();
-		}else if(input.equals(input3)){
+		String input1 ="admin",input2 ="user";
+		if(input.equals(input1)) {
+			System.out.println("Welcome To Admin Page");
+			System.out.println("**********************");
 			BloodBanksDetails bloodBanksDetails = new BloodBanksDetails();
 			bloodBanksDetails.admin();
-			BloodBankImplement bloodBankImplement = new BloodBankImplement();
-//			bloodBankImplement.adminInsert(adminId,adminName);
-			insertAdminDetails(bloodBanksDetails.name,username,password,bloodGroup);
-			 readAdminDetails();
-//			inserts(aid,aname,bloodGroup);
-		}else if(input.equals(input4)) {
-			 System.out.println("**********************************");
-			 System.out.println(" Daily transaction for blood bank");
-			 System.out.println("**********************************");
-			 BloodBanksDetails bloodBanksDetails = new BloodBanksDetails();
-			 bloodBanksDetails.transaction(1, "Vidhya", "O+","22-04-2024");
-			 System.out.println("--------------------");
-			 bloodBanksDetails.transaction(2, "Santhini", "O+","22-04-2024");
-			 System.out.println("--------------------");
-			 bloodBanksDetails.transaction(3, "Swarna", "A+", "23-04-2024");
-			 System.out.println("--------------------");
-			 bloodBanksDetails.transaction(4, "Sangeetha", "A-","20-04-2024");
-			 System.out.println("--------------------");
-			 bloodBanksDetails.transaction(5, "Swetha", "AB-","24-04-2024");
-			 System.out.println("**********************************");
-		}else if(input.equals(input5)) {
+		}else if(input.equals(input2)){
+			System.out.println("Welcome To User Page");
 			BloodBanksDetails bloodBanksDetails = new BloodBanksDetails();
-			System.out.println("****************************************");
-			System.out.println("   Hospital Details For Blood Donation     ");
-			System.out.println("****************************************");
-			bloodBanksDetails.hospitalDetails("Apolo Hospital","Avadi","Chennai","Avadi");
-			System.out.println("----------------------------------------");
-			bloodBanksDetails.hospitalDetails("Vijaya Hospital ","Vadapalani","Chennai","Vadapalani");
-			System.out.println("----------------------------------------");
-			bloodBanksDetails.hospitalDetails("Meenakshi Hospital","Ambattur","Chennai","Ambattur");
-			System.out.println("----------------------------------------");
-			bloodBanksDetails.hospitalDetails("Military Hospital","Avadi","Chennai","Avadi");
-			System.out.println("----------------------------------------");
-			bloodBanksDetails.hospitalDetails("Aristo Hospital","Perambur","Chennai","Perambur");
-			System.out.println("*****************************************");
-		}else if(input.equals(input6)) {
-			BloodBanksDetails bloodBanksDetails = new BloodBanksDetails();
-			bloodBanksDetails.bloodDonorsDetails("Vidhya","O+","Avadi",12345678l,"Chennai");
-		}else if(input.equals(input7)) {
-			BloodBanksDetails bloodBanksDetails = new BloodBanksDetails();
-			bloodBanksDetails.register();
-			insert(username,password);
-		}else if(input.equals(input8)) {
-			BloodBanksDetails bloodBanksDetails = new BloodBanksDetails();
-			bloodBanksDetails.login();
-			inserts(name,username,password,username1,password1);
-		}else if(input.equals(input9)) {
-			BloodBanksDetails bloodBanksDetails = new BloodBanksDetails();
-			bloodBanksDetails.availableBloodBags();
-		}else if(input.equals(input10)) {
-			BloodBanksDetails bloodBanksDetails = new BloodBanksDetails();
-			bloodBanksDetails.diseaseTest();
-		}else if(input.equals(input11)) {
-			BloodBanksDetails bloodBanksDetails = new BloodBanksDetails();
-			bloodBanksDetails.matchingBloodGroupDetails();
-		}else{
-			BloodBanksDetails bloodBanksDetails = new BloodBanksDetails();
+			System.out.println("Enter Type");
+			System.out.println("1.student \n 2.donor \n 3. donordetails");
 			bloodBanksDetails.userDetails();
-//			update();
-			update1(name);
-			read();
-			delete();
-//			insert();
-//			testBloodBank.insert();
-//			BloodBankImplement bloodBankImplement = new BloodBankImplement();
-//			BloodBankImplement.insert();
-//			TestBloodBank testBloodBank = new TestBloodBank();
-			String bloodGroup = bloodBanksDetails.bloodGroup;
-			test(bloodGroup,bloodBanksDetails.name);
-//		}else {
 			
 		}
-//		TestBloodBank testBloodBank = new TestBloodBank();
+		
+//		String inputs = "yes", input2 = "student", input3="admin", input4="transaction", input5="hospital", input6 = "donordetails", input7="register", input8="login", input9="availabilitydetails", input10="test", input11="matchingbloodgroupdetails";
 
-
-//		testBloodBank.insert();
-		sc.close();	
+		//		if(input.equals(inputs)) {
+//			System.out.println("You are going to donate blood");
+//			String input1 = sc.next();
+//			if(input1.equals(inputs)) {
+//				System.out.println("Please Enter Your Id :");
+//				int unit,unit1=300,unit2=200,unit3=250,id1=5, id=sc.nextInt();
+//				System.out.println("Please Enter Your Name : ");
+//				String name1="Vidhya", name = sc.next();
+//				System.out.println("Please Enter Your PhoneNumber : ");
+//				long phonenumber1 =1234565432l, phoneNumber = sc.nextLong();
+//				if(id==id1 && name.equals(name1) && phoneNumber == phonenumber1 ) {
+//					System.out.println("Confirmation Successfull");
+//					System.out.println("Please Enter your age");
+//					int age = sc.nextInt();
+//					if(age>=18) {
+//						System.out.println("How Much Do you want to donate");
+//						unit=sc.nextInt();
+//						if(unit==unit1) {
+//							System.out.println("Unit Of Blood Taken");
+//						 }else if(unit==unit2) {
+//							 System.out.println("Unit Of Blood Taken");
+//						 }else if(unit==unit3) {
+//							 System.out.println("Unit Of Blood Taken");
+//						 }else if(unit!=unit1 || unit!=unit2 || unit!=unit3){
+//							 System.out.println("Sorry! Here we collect this much unit only because for donor's health concern.");
+//						 }
+//						 int donateBlood = sc.nextInt();
+//						 if(donateBlood == 200) {
+//							 System.out.println("You Have Finished Your Blood Donation And You Have Donated " + donateBlood);
+//							 System.out.println("Thank You For Doing This Service");
+//						 }else if(donateBlood == 250) {
+//							 System.out.println(donateBlood + "ml finished blood donation");
+//							 System.out.println("Thank You For Doing This Service");
+//						 }else if(donateBlood == 300) {
+//							 System.out.println("You Have Finished Your Blood Donation And You Have Donated " + donateBlood);
+//							 System.out.println("Thank You For Doing This Service");
+//						 }
+//					}else {
+//						System.out.println("Sorry, You Cannot Donate Blood");
+//					}
+//					
+//				 }else {
+//					 System.out.println("Sorry, No Records Found!");
+//				 }
+//			 }else {
+//				 
+//				 System.out.println("User have only allowed to donate");
+//				 System.out.println("If you need blood please login again !Enter as a new login");
+//			 }
+//		}else if(input.equals(input2)) {
+//			BloodBanksDetails bloodBanksDetails = new BloodBanksDetails();
+//			bloodBanksDetails.displayDetails();
+//		}else if(input.equals(input3)){
+//			BloodBanksDetails bloodBanksDetails = new BloodBanksDetails();
+////			bloodBanksDetails.admin();
+//			 insertadmin(bloodBanksDetails.username1,bloodBanksDetails.password1);
+////			BloodBankImplement bloodBankImplement = new BloodBankImplement();
+////			bloodBankImplement.adminInsert(adminId,adminName);
+////			insertAdminDetails(name,username,password,bloodGroup);
+////			 readAdminDetails();
+////			inserts(aid,aname,bloodGroup);
+//		}else if(input.equals(input4)) {
+//			 System.out.println("**********************************");
+//			 System.out.println(" Daily transaction for blood bank");
+//			 System.out.println("**********************************");
+//			 BloodBanksDetails bloodBanksDetails = new BloodBanksDetails();
+//			 bloodBanksDetails.transaction(1, "Vidhya", "O+","22-04-2024");
+//			 System.out.println("--------------------");
+//			 bloodBanksDetails.transaction(2, "Santhini", "O+","22-04-2024");
+//			 System.out.println("--------------------");
+//			 bloodBanksDetails.transaction(3, "Swarna", "A+", "23-04-2024");
+//			 System.out.println("--------------------");
+//			 bloodBanksDetails.transaction(4, "Sangeetha", "A-","20-04-2024");
+//			 System.out.println("--------------------");
+//			 bloodBanksDetails.transaction(5, "Swetha", "AB-","24-04-2024");
+//			 System.out.println("**********************************");
+//		}else if(input.equals(input5)) {
+//			BloodBanksDetails bloodBanksDetails = new BloodBanksDetails();
+//			System.out.println("****************************************");
+//			System.out.println("   Hospital Details For Blood Donation     ");
+//			System.out.println("****************************************");
+//			bloodBanksDetails.hospitalDetails("Apolo Hospital","Avadi","Chennai","Avadi");
+//			System.out.println("----------------------------------------");
+//			bloodBanksDetails.hospitalDetails("Vijaya Hospital ","Vadapalani","Chennai","Vadapalani");
+//			System.out.println("----------------------------------------");
+//			bloodBanksDetails.hospitalDetails("Meenakshi Hospital","Ambattur","Chennai","Ambattur");
+//			System.out.println("----------------------------------------");
+//			bloodBanksDetails.hospitalDetails("Military Hospital","Avadi","Chennai","Avadi");
+//			System.out.println("----------------------------------------");
+//			bloodBanksDetails.hospitalDetails("Aristo Hospital","Perambur","Chennai","Perambur");
+//			System.out.println("*****************************************");
+//		}else if(input.equals(input6)) {
+//			BloodBanksDetails bloodBanksDetails = new BloodBanksDetails();
+//			bloodBanksDetails.bloodDonorsDetails("Vidhya","O+","Avadi",12345678l,"Chennai");
+//		}else if(input.equals(input7)) {
+//			BloodBanksDetails bloodBanksDetails = new BloodBanksDetails();
+//			bloodBanksDetails.register();
+//			insert(username,password);
+//		}else if(input.equals(input8)) {
+//			BloodBanksDetails bloodBanksDetails = new BloodBanksDetails();
+//			bloodBanksDetails.login();
+//			inserts(name,username,password,username1,password1);
+//		}else if(input.equals(input9)) {
+//			BloodBanksDetails bloodBanksDetails = new BloodBanksDetails();
+//			bloodBanksDetails.availableBloodBags();
+//		}else if(input.equals(input10)) {
+//			BloodBanksDetails bloodBanksDetails = new BloodBanksDetails();
+//			bloodBanksDetails.diseaseTest();
+//		}else if(input.equals(input11)) {
+//			BloodBanksDetails bloodBanksDetails = new BloodBanksDetails();
+//			bloodBanksDetails.matchingBloodGroupDetails();
+//		}else{
+//			BloodBanksDetails bloodBanksDetails = new BloodBanksDetails();
+//			bloodBanksDetails.userDetails();
+////			update();
+//			update1(name);
+//			read();
+//			delete();
+////			insert();
+////			testBloodBank.insert();
+////			BloodBankImplement bloodBankImplement = new BloodBankImplement();
+////			BloodBankImplement.insert();
+////			TestBloodBank testBloodBank = new TestBloodBank();
+//			String bloodGroup = bloodBanksDetails.bloodGroup;
+//			test(bloodGroup,bloodBanksDetails.name);
+////		}else {
+//			
+//		}
+////		TestBloodBank testBloodBank = new TestBloodBank();
+//
+//
+////		testBloodBank.insert();
+//		sc.close();	
 	}
 	
 	public static void test(String bloodGroup,String name) throws ClassNotFoundException, SQLException {
@@ -211,7 +234,7 @@ public class TestBloodBank extends BloodBanksDetails{
 	public static void insert(String username,String password) throws SQLException, ClassNotFoundException {
 		Connection connection = ConnectionUtil.getConnection();
 		 System.out.println(connection);
-		 	Scanner sc=new Scanner(System.in);
+//		 	Scanner sc=new Scanner(System.in);
 		 	String bloodGroup = "O+";
 		 	System.out.println(name + username + password + bloodGroup);
 	        String save="insert into bloodbank (name,username,password,bloodGroup)  values (?,?,?,?)";
@@ -257,7 +280,7 @@ public class TestBloodBank extends BloodBanksDetails{
 	public static void inserts(String name,String username,String password,String username1,String password1) throws ClassNotFoundException, SQLException {
 		Connection connection = ConnectionUtil.getConnection();
 //		 System.out.println(connection);
-		 	Scanner sc=new Scanner(System.in);
+//		 	Scanner sc=new Scanner(System.in);
 //		 	System.out.println("Enter Your Name :");
 //		 	String name=sc.next();
 		 	System.out.println("Enter Your BloodGroup :");
@@ -315,18 +338,68 @@ public class TestBloodBank extends BloodBanksDetails{
 	    	int rows = prepareStatement.executeUpdate();
 	    	System.out.println(rows + " deleted");
 	  }
+	 
+	  
+	  public static void inserts(int aid,String aname,String bloodGroup) throws ClassNotFoundException, SQLException {
+		  Connection connection = ConnectionUtil.getConnection();
+//		  Scanner sc= new Scanner(System.in);
+		  System.out.println(connection);
+		  System.out.println("Enter your bloodGroup");
+		  String bloodGroup1=sc.next();
+		  System.out.println(adminId + adminName + bloodGroup1);
+		  String save = "insert into bloodbank (id,name,bloodGroup) values(?,?,?) ";
+		  PreparedStatement prepareStatement = connection.prepareStatement(save);
+			if(adminId==aid && adminName.equals(aname)) {
+				prepareStatement.setInt(1, aid);
+	  	        prepareStatement.setString(2, aname);
+	  	        prepareStatement.setString(3, bloodGroup);
+	  	        int rows = prepareStatement.executeUpdate();
+	  	        System.out.println(rows+"inserted");
+			}else {
+				System.out.println("Invalid Data");
+			}
+	  }
+	  
+	  public static void insert(int aid,String aname,String bloodGroup) throws ClassNotFoundException, SQLException {
+		  Connection connection = ConnectionUtil.getConnection();
+//		  Scanner sc= new Scanner(System.in);
+		  System.out.println(connection);
+		  System.out.println("Enter your bloodGroup");
+		  String bloodGroup1=sc.next();
+		  System.out.println(adminId + adminName + bloodGroup1);
+		  String save = "insert into bloodbank (id,name,bloodGroup) values(?,?,?) ";
+		  PreparedStatement prepareStatement = connection.prepareStatement(save);
+			if(adminId==aid && adminName.equals(aname)) {
+				prepareStatement.setInt(1, aid);
+	  	        prepareStatement.setString(2, aname);
+	  	        prepareStatement.setString(3, bloodGroup);
+	  	        int rows = prepareStatement.executeUpdate();
+	  	        System.out.println(rows+"inserted");
+			}else {
+				System.out.println("Invalid Data");
+			}
+	  }
+	  
+	  
+	  
+//	  public static void ins(String name) {
+//		  BloodBankDetails b =new BloodBankDetails();
+//		  name2 = b.name;
+//		  System.out.println(name2);
+//	  }
+	  
 	  //Admin CRUD Operations
 	  //1. Insert Operation
 	  public static void insertAdminDetails(String name,String username,String password,String bloodGroup) throws ClassNotFoundException, SQLException {
 		  Connection connection = ConnectionUtil.getConnection();
-		  Scanner sc= new Scanner(System.in);
+//		  Scanner sc= new Scanner(System.in);
 //		  System.out.println(connection);
 	        String save="insert into bloodbank (name,username,password,bloodGroup)  values (?,?,?,?)";
 //		  String save = "insert into bloodbank (name) values (?)  ";
 		  PreparedStatement prepareStatement = connection.prepareStatement(save);
 		  if(adminId==aid && adminName.equals(aname)) {
 			 String name1="Vidhya",username1="Vidhyaa@08",password1="Sudha",bloodGroup1="O+";
-			 name=name1,username=username1,
+//			 name=name1,username=username1;
 	  	        prepareStatement.setString(1, name);
 	  	        prepareStatement.setString(2, username);
 	  	        prepareStatement.setString(3, password);
@@ -368,23 +441,38 @@ public class TestBloodBank extends BloodBanksDetails{
 	        System.out.println(rows+" updated");
 	    }
 	  
-	  public static void inserts(int aid,String aname,String bloodGroup) throws ClassNotFoundException, SQLException {
-		  Connection connection = ConnectionUtil.getConnection();
-		  Scanner sc= new Scanner(System.in);
-		  System.out.println(connection);
-		  System.out.println("Enter your bloodGroup");
-		  String bloodGroup1=sc.next();
-		  System.out.println(adminId + adminName + bloodGroup1);
-		  String save = "insert into bloodbank (id,name,bloodGroup) values(?,?,?) ";
-		  PreparedStatement prepareStatement = connection.prepareStatement(save);
-			if(adminId==aid && adminName.equals(aname)) {
-				prepareStatement.setInt(1, aid);
-	  	        prepareStatement.setString(2, aname);
-	  	        prepareStatement.setString(3, bloodGroup);
-	  	        int rows = prepareStatement.executeUpdate();
-	  	        System.out.println(rows+"inserted");
-			}else {
-				System.out.println("Invalid Data");
-			}
-	  }
-}
+	  
+	  //insert operation
+//		static Scanner sc = new Scanner(System.in);
+	  public static void insertadmin(String username1, String password1) throws ClassNotFoundException, SQLException {
+		
+			 Connection connection = ConnectionUtil.getConnection();
+			  System.out.println("Enter your name :");
+			  String name=sc.next();
+			  System.out.println(name);
+			  System.out.println("Enter your username : ");
+			  String username = sc.next();
+			  System.out.println(username);
+			  System.out.println("Enter your password :");
+			  String password = sc.next();
+			  System.out.println(password);
+			  System.out.println("Enter your bloodGroup :");
+			  String bloodGroup = sc.next();
+			  System.out.println(bloodGroup);
+		      String save="insert into bloodbank (name,username,password,bloodGroup)  values (?,?,?,?)";
+		      PreparedStatement prepareStatement = connection.prepareStatement(save);
+			  if(username.equals(username1)&& password.equals(password1)) {
+				    prepareStatement.setString(1, getName());
+		  	        prepareStatement.setString(2, getUserName());
+		  	        prepareStatement.setString(3, password);
+		  	        prepareStatement.setString(4, bloodGroup);
+		  	        int rows = prepareStatement.executeUpdate();
+		  	        System.out.println(rows+"inserted");
+			  }else {
+					System.out.println("Invalid Data");
+			  }  
+		 }
+	}
+	  
+
+

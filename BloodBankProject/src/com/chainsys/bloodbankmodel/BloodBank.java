@@ -5,8 +5,8 @@ public class BloodBank {
 	public static int id;
 	public static String name;
 	public static String bloodGroup;
-	String username;
-	String password;
+	public static String username,username2,password2;
+	public static String password;
 	public static int getId() {
 		return id;
 	}
@@ -25,13 +25,13 @@ public class BloodBank {
 	public static void setBloodGroup(String bloodGroup) {
 		BloodBank.bloodGroup = bloodGroup;
 	}
-	public String getUserName() {
+	public static String getUserName() {
 		return username;
 	}
 	public void setUserName(String username) {
 		this.username = username;
 	}
-	public String getPassword() {
+	public static String getPassword() {
 		return password;
 	}
 	public void setPassword(String password) {
