@@ -29,24 +29,24 @@ public class BloodBank {
 		return username;
 	}
 	public void setUserName(String username) {
-		this.username = username;
+		BloodBank.username = username;
 	}
 	public static String getPassword() {
 		return password;
 	}
 	public void setPassword(String password) {
-		this.password = password;
+		BloodBank.password = password;
 	}
 	public BloodBank() {
 		
 	}
 	
 	public BloodBank(int id, String name, String bloodGroup,String username, String password) {
-		this.id = id;
-		this.name = name;
-		this.bloodGroup = bloodGroup;
-		this.username = username;
-		this.password = password;
+		BloodBank.id = id;
+		BloodBank.name = name;
+		BloodBank.bloodGroup = bloodGroup;
+		BloodBank.username = username;
+		BloodBank.password = password;
 	}
 	@Override
 	public String toString() {

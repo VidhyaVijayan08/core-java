@@ -19,7 +19,6 @@ public class TestBloodBank extends BloodBanksDetails {
 //	private static String name2;
  	static Scanner sc=new Scanner(System.in);
 
-
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
 //		TestBloodBank testBloodBank = new TestBloodBank();
 //		Scanner sc = new Scanner(System.in);		
@@ -36,6 +35,12 @@ public class TestBloodBank extends BloodBanksDetails {
 			BloodBanksDetails bloodBanksDetails = new BloodBanksDetails();
 			System.out.println("Enter Type");
 			System.out.println("1.student \n 2.donor \n 3. donordetails");
+			String type1="student", type2="donor", type3 = "donordetails";
+//			inserts(bloodBanksDetails.name,username,password,username1,password1);
+//			bloodBanksDetails.userDetails();
+			bloodBanksDetails.register();
+			insert(bloodBanksDetails.username,password);
+
 			bloodBanksDetails.userDetails();
 			
 		}
@@ -231,22 +236,22 @@ public class TestBloodBank extends BloodBanksDetails {
 //	        int rows = prepareStatement.executeUpdate();
 //	        System.out.println(rows+"inserted");
 //	    }
-	public static void insert(String username,String password) throws SQLException, ClassNotFoundException {
-		Connection connection = ConnectionUtil.getConnection();
-		 System.out.println(connection);
-//		 	Scanner sc=new Scanner(System.in);
-		 	String bloodGroup = "O+";
-		 	System.out.println(name + username + password + bloodGroup);
-	        String save="insert into bloodbank (name,username,password,bloodGroup)  values (?,?,?,?)";
-	        PreparedStatement prepareStatement = connection.prepareStatement(save);
-	        prepareStatement.setString(1, name);
-	        prepareStatement.setString(2, username);
-	        prepareStatement.setString(3,password);
-	        prepareStatement.setString(4, bloodGroup);
-	        int rows = prepareStatement.executeUpdate();
-	        System.out.println(rows+"inserted");
-		
-	}
+//	public static void insert(String username,String password) throws SQLException, ClassNotFoundException {
+//		Connection connection = ConnectionUtil.getConnection();
+//		 System.out.println(connection);
+////		 	Scanner sc=new Scanner(System.in);
+//		 	String bloodGroup = "O+";
+//		 	System.out.println(name + username + password + bloodGroup);
+//	        String save="insert into bloodbank (name,username,password,bloodGroup)  values (?,?,?,?)";
+//	        PreparedStatement prepareStatement = connection.prepareStatement(save);
+//	        prepareStatement.setString(1, name);
+//	        prepareStatement.setString(2, username);
+//	        prepareStatement.setString(3,password);
+//	        prepareStatement.setString(4, bloodGroup);
+//	        int rows = prepareStatement.executeUpdate();
+//	        System.out.println(rows+"inserted");
+//		
+//	}
 //	public static void inserts(String username1,String password1) throws SQLException, ClassNotFoundException {
 //		Connection connection = ConnectionUtil.getConnection();
 //		 System.out.println(connection);
@@ -277,6 +282,31 @@ public class TestBloodBank extends BloodBanksDetails {
 //	    }
 //	  
 	
+	public static void insert(String username,String password) throws ClassNotFoundException, SQLException {
+		Connection connection = ConnectionUtil.getConnection();
+		System.out.println("Enter your name");
+		String name = sc.next();
+		System.out.println("Enter your bloodgroup");
+		String bloodGroups =sc.next();
+		System.out.println("Enter your username");
+		String username2= sc.next();
+		System.out.println("Enter your password");
+		String password2 = sc.next();
+		System.out.println(name+ username2 + password2 +bloodGroups + BloodBanksDetails.username + password);
+		 String save="insert into bloodbank (name,username,password,bloodGroup)  values (?,?,?,?)";
+	        PreparedStatement prepareStatement = connection.prepareStatement(save);
+	        if(username.equals(username1)&& password.equals(password1)) {
+	        	System.out.println("Already user");
+	        }else {
+	        	prepareStatement.setString(1, name);
+	  	        prepareStatement.setString(2, username2);
+	  	        prepareStatement.setString(3,password2);
+	  	        prepareStatement.setString(4, bloodGroup);
+	  	        int rows = prepareStatement.executeUpdate();
+	  	        System.out.println(rows+"inserted");
+	        }
+	}
+	
 	public static void inserts(String name,String username,String password,String username1,String password1) throws ClassNotFoundException, SQLException {
 		Connection connection = ConnectionUtil.getConnection();
 //		 System.out.println(connection);
@@ -285,10 +315,10 @@ public class TestBloodBank extends BloodBanksDetails {
 //		 	String name=sc.next();
 		 	System.out.println("Enter Your BloodGroup :");
 		 	String bloodGroup=sc.next();
-		 	System.out.println(name+ username1 + password1 +bloodGroup + username + password);
+		 	System.out.println(name+ username1 + password1 + bloodGroup + username + password);
 	        String save="insert into bloodbank (name,username,password,bloodGroup)  values (?,?,?,?)";
 	        PreparedStatement prepareStatement = connection.prepareStatement(save);
-	        if(username1.equals(username1)&& password1.equals(password1)) {
+	        if(username.equals(username1) && password.equals(password1)) {
 	        	System.out.println("Already user");
 	        }else {
 	        	prepareStatement.setString(1, name);
