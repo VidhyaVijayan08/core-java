@@ -126,7 +126,7 @@ public class BloodBanksDetails extends BloodBank{
 		 return password;
 	}
 	
-	public static void ins(String username,String password) throws ClassNotFoundException, SQLException {
+	public static void insert(String username,String password) throws ClassNotFoundException, SQLException {
 			Connection connection = ConnectionUtil.getConnection();
 			Scanner sc = new Scanner(System.in);
 			System.out.println("Enter your name :");

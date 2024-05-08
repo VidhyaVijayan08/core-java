@@ -1,6 +1,6 @@
 package com.chainsys.bloodbankmain;
 
-import java.sql.Connection;
+import java.sql.Connection; 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Scanner;
@@ -53,7 +53,7 @@ public class TestBloodBanks extends BloodBanksDetails{
 		System.out.println("Enter your Username");
 	}
 	
-//	public static void ins(String username,String password) throws ClassNotFoundException, SQLException {
+//	public static void insert(String username,String password) throws ClassNotFoundException, SQLException {
 //			Connection connection = ConnectionUtil.getConnection();
 //			Scanner sc = new Scanner(System.in);
 //			System.out.println("Enter your name :");
