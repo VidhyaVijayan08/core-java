@@ -18,7 +18,7 @@ public class ConnectionUtil {
 		return connection;
 	}
 	
-	public static void ins(String username,String password) throws ClassNotFoundException, SQLException {
+	public static void insert(String username,String password) throws ClassNotFoundException, SQLException {
 //		public static void ins(String name, String username,String password) throws ClassNotFoundException, SQLException {
 			Connection connection = ConnectionUtil.getConnection();
 			Scanner sc = new Scanner(System.in);
@@ -44,5 +44,23 @@ public class ConnectionUtil {
 	  	        int rows = prepareStatement.executeUpdate();
 	  	        System.out.println(rows+" inserted");
 	        }
+	}
+	
+	public static void delete(String username,String password) throws ClassNotFoundException, SQLException {
+//		public static void ins(String name, String username,String password) throws ClassNotFoundException, SQLException {
+			Connection connection = ConnectionUtil.getConnection();
+			Scanner sc = new Scanner(System.in);
+			System.out.println("Enter your name :");
+			String name = sc.next();
+			System.out.println("Enter Your BloodGroup :");
+		 	String bloodGroups=sc.next();
+		 	System.out.println("Enter your username");
+		 	String username1=sc.next();
+		 	System.out.println("Enter your password");
+		 	String password1=sc.next();
+//		 	username=BloodBanksDetails.username;
+		 	System.out.println(name+ username1 + password1 + bloodGroups + username + password);
+	        String save="delete * from bloodbank values where id=2";
+	        PreparedStatement prepareStatement = connection.prepareStatement(save);
 	}
 }

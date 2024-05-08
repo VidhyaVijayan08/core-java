@@ -32,7 +32,7 @@ public class TestBloodBanks extends BloodBanksDetails{
 //				bloodBanksDetails.login();
 //				BloodBanksDetails.ins(BloodBanksDetails.username,BloodBanksDetails.password);
 //				BloodBanksDetails.ins(username, password);
-				ConnectionUtil.ins(username, password);
+				ConnectionUtil.insert(username, password);
 			}else if(input5.equals(input2)) {
 				bloodBanksDetails.register();
 //				ins(name,username,password);
