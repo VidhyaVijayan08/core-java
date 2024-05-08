@@ -19,7 +19,6 @@ public class ConnectionUtil {
 	}
 	
 	public static void insert(String username,String password) throws ClassNotFoundException, SQLException {
-//		public static void ins(String name, String username,String password) throws ClassNotFoundException, SQLException {
 			Connection connection = ConnectionUtil.getConnection();
 			Scanner sc = new Scanner(System.in);
 			System.out.println("Enter your name :");
@@ -47,7 +46,6 @@ public class ConnectionUtil {
 	}
 	
 	public static void delete(String username,String password) throws ClassNotFoundException, SQLException {
-//		public static void ins(String name, String username,String password) throws ClassNotFoundException, SQLException {
 			Connection connection = ConnectionUtil.getConnection();
 			Scanner sc = new Scanner(System.in);
 			System.out.println("Enter your name :");
