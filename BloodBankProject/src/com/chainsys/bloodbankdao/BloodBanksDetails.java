@@ -40,9 +40,9 @@ public class BloodBanksDetails extends BloodBank{
 //			System.out.println(" Id : "+ id + "\n Name : " + tname + "\n BloodGroup : " + bloodGroup + "\n Date : " + date);
 //	
 //	}
-//	public void hospitalDetails(String hname, String address, String location, String branch) {
-//		System.out.println("    Hospital Name : "+ hname + "\n    Address : " + address + "\n    Location : " + location + "\n    Branch : " + branch);
-//	}
+	public void hospitalDetails(String hname, String address, String location, String branch) {
+		System.out.println("    Hospital Name : "+ hname + "\n    Address : " + address + "\n    Location : " + location + "\n    Branch : " + branch);
+	}
 //	
 //	public void bloodDonorsDetails(String donorName,String donorBloodGroup,String donorAddress, long donorMobileNumber,String donorLocation) {		
 //		Scanner sc=new Scanner(System.in);
@@ -114,8 +114,8 @@ public class BloodBanksDetails extends BloodBank{
 	public String username() {
 		System.out.println("Enter Your Username : ");
 		 username1 =sc.next();
-		 bloodBank.setUserName(username1);
-		 username=BloodBank.getUserName();
+		 bloodBank.setUsername(username1);
+		 username=BloodBank.getUsername();
 		 return username;
 	}
 	public String password() {
@@ -187,24 +187,25 @@ public class BloodBanksDetails extends BloodBank{
 		System.out.println("***************************");
 	}
 	
-//	public void diseaseTest() throws ClassNotFoundException, SQLException {
-//		System.out.println("Screening for current or past infections, including:");
-//		System.out.println("1. Hepatitis viruses B and C \n2. Human immunodeficiency virus (HIV) \n3. Human T-lymphotropic viruses (HTLV) I and II \n4. Syphilis\n5. West Nile virus\n6. Chagas disease \n7.No disease ");
-//		try {
-//			int diseaseOption=sc.nextInt();
-//			if(diseaseOption==1||diseaseOption==2||diseaseOption==3||diseaseOption==4||diseaseOption==5||diseaseOption==6) {
-//				System.out.println("Sorry ! you are not supposed to donate blood");
-//			}
-//			else if(diseaseOption==7) {
-//				userDetails();
-//				System.out.println("Thank you for donating blood");
-//			}else {
-//				System.out.println("You can give blood");
-//			}
-//		}catch (InputMismatchException e) {
-//			System.out.println("Select any one of the option in integer!");
-//		}
-//	}
+	public void diseaseTest() throws ClassNotFoundException, SQLException {
+		System.out.println("Screening for current or past infections, including:");
+		System.out.println("1. Hepatitis viruses B and C \n2. Human immunodeficiency virus (HIV) \n3. Human T-lymphotropic viruses (HTLV) I and II \n4. Syphilis\n5. West Nile virus\n6. Chagas disease \n7.No disease ");
+		try {
+			int diseaseOption=sc.nextInt();
+			if(diseaseOption==1||diseaseOption==2||diseaseOption==3||diseaseOption==4||diseaseOption==5||diseaseOption==6) {
+				System.out.println("Sorry ! you are not supposed to donate blood");
+			}
+			else if(diseaseOption==7) {
+				BloodBankDetails bloodBankDetails = new BloodBankDetails();
+				bloodBankDetails.userDetails();
+				System.out.println("Thank you for donating blood");
+			}else {
+				System.out.println("You can give blood");
+			}
+		}catch (InputMismatchException e) {
+			System.out.println("Select any one of the option in integer!");
+		}
+	}
 	
 	public void matchingBloodGroupDetails() {
 		System.out.println("*************************");
@@ -245,4 +246,5 @@ public class BloodBanksDetails extends BloodBank{
 		}
 		System.out.println("*************************");
 	}
+
 }
