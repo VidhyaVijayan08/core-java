@@ -36,10 +36,10 @@ public class BloodBanksDetails extends BloodBank{
 //		System.out.println("******************************************************");
 //	}
 	
-//	public void transaction(int id,String tname,String bloodGroup,String date) {
-//			System.out.println(" Id : "+ id + "\n Name : " + tname + "\n BloodGroup : " + bloodGroup + "\n Date : " + date);
-//	
-//	}
+	public void transaction(int id,String tname,String bloodGroup,String date) {
+			System.out.println(" Id : "+ id + "\n Name : " + tname + "\n BloodGroup : " + bloodGroup + "\n Date : " + date);
+	
+	}
 	public void hospitalDetails(String hname, String address, String location, String branch) {
 		System.out.println("    Hospital Name : "+ hname + "\n    Address : " + address + "\n    Location : " + location + "\n    Branch : " + branch);
 	}
